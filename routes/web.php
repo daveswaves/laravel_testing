@@ -1,18 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\ExchangeRateController;
 
+
+// Route::redirect('/', 'products');
+// Route::resource('products', ExchangeRateController::class);
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
+http://127.0.0.1:8000/100/usd/eur
+http://127.0.0.1:8000/100/gbp/usd
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/{amount}/{from}/{to}', [ExchangeRateController::class, 'index']);
