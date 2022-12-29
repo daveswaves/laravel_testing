@@ -35,29 +35,7 @@ class CurrencyService
     
     public function convert(float $amount, string $currencyFrom, string $currencyTo, bool $test=FALSE): float
     {
-        /*
         $rates = $this->excData($test=FALSE);
-        
-        $rates = [
-            'usd' => [
-                // 'eur' => 0.91,
-                'eur' => 0.94,
-                'gbp' => 0.83,
-            ],
-            'gbp' => [
-                'eur' => 1.13,
-                'usd' => 1.20,
-            ],
-        ];
-        */
-        
-        $excRates = ExchangeRate::all();
-        
-        // dd($excRates);
-        
-        foreach ($excRates as $rec) {
-            $rates[$rec->from][$rec->to] = $rec->amount;
-        }
         
         $rate = $rates[$currencyFrom][$currencyTo] ?? 0;
         
